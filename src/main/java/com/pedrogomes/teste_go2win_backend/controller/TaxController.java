@@ -1,12 +1,13 @@
 package com.pedrogomes.teste_go2win_backend.controller;
 
+import com.pedrogomes.teste_go2win_backend.domain.tax.MoneyWithTaxDTO;
+import com.pedrogomes.teste_go2win_backend.domain.tax.SimulateTaxDTO;
 import com.pedrogomes.teste_go2win_backend.domain.tax.Tax;
 import com.pedrogomes.teste_go2win_backend.domain.tax.TaxDTO;
 import com.pedrogomes.teste_go2win_backend.service.TaxService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -22,5 +23,10 @@ public class TaxController {
     @GetMapping
     public List<TaxDTO> getTaxes() throws IOException {
         return taxService.getTaxEntries().stream().map(TaxDTO::new).collect(Collectors.toList());
+    }
+
+    @PostMapping("/calculate")
+    public ResponseEntity<MoneyWithTaxDTO> calculateTaxes(@RequestBody SimulateTaxDTO data) {
+        return ResponseEntity.ok(taxService.CalculateTaxValue(data.getAmount(), data.getTransferDate()));
     }
 }

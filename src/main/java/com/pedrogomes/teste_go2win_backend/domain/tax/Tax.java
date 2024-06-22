@@ -20,4 +20,12 @@ public class Tax {
 
     private float money;
 
+    public boolean isInInterval(int days) {
+        return days >= this.data_from && days <= this.data_to;
+    }
+
+    public float calculateDecimalTax() {
+        return tax / 100;
+    }
+
 }
