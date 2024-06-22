@@ -1,0 +1,38 @@
+[
+  {
+    "data_from": 0,
+    "data_to": 0,
+    "money": 3.00,
+    "tax": 2.5
+  },
+  {
+    "data_from": 1,
+    "data_to": 10,
+    "money": 12.00,
+    "tax": 0
+  },
+  {
+    "data_from": 11,
+    "data_to": 20,
+    "money": 0,
+    "tax": 8.2
+  },
+  {
+    "data_from": 21,
+    "data_to": 30,
+    "money": 0,
+    "tax": 6.9
+  },
+  {
+    "data_from": 31,
+    "data_to": 40,
+    "money": 0,
+    "tax": 4.7
+  },
+  {
+    "data_from": 41,
+    "data_to": 50,
+    "money": 0,
+    "tax": 1.7
+  }
+]
