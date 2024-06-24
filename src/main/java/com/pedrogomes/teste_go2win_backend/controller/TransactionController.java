@@ -19,6 +19,7 @@ public class TransactionController {
     private TransactionService transactionService;
 
     @PostMapping
+    @CrossOrigin
     public ResponseEntity<TransactionResponseDTO> createTransaction(@RequestBody TransactionDTO transactionDTO) {
         Transaction transaction = transactionService.createTransaction(transactionDTO);
         TransactionResponseDTO transactionResponseDTO = new TransactionResponseDTO(transaction);
@@ -26,6 +27,7 @@ public class TransactionController {
     }
 
     @GetMapping
+    @CrossOrigin
     public List<TransactionResponseDTO> getListOfTransaction() {
         return transactionService.listAllTransaction()
                 .stream()

@@ -22,10 +22,7 @@ public class TaxService {
     }
 
     public MoneyWithTaxDTO CalculateTaxValue(float value, LocalDate transactionDate) {
-        int daysUntil = DaysUntil(transactionDate);
-        Tax tax = getTaxFromTime(daysUntil).orElseThrow(() ->
-                new NotAllowedTransactionException("Transação de acima de 50 dias não é permitida - (tempo total: " + (daysUntil) + ")"
-                ));
+        Tax tax = getTaxFromDate(transactionDate);
 
         float finalTaxAmount = (value * tax.calculateDecimalTax()) + tax.getMoney();
         float totalAmount = value + finalTaxAmount;
@@ -33,14 +30,22 @@ public class TaxService {
         return new MoneyWithTaxDTO(totalAmount, finalTaxAmount, tax);
     }
 
+    public Tax getTaxFromDate(LocalDate date) {
+        int daysUntil = daysUntil(date);
+        Tax tax = getTaxFromTime(daysUntil).orElseThrow(() ->
+                new NotAllowedTransactionException("Transação de acima de 50 dias não é permitida - (tempo total: " + (daysUntil) + ")"
+                ));
+        return tax;
+    }
+
     public Optional<Tax> getTaxFromTime(int days) {
         return taxEntries.stream().filter(entry -> entry.isInInterval(days)).findFirst();
     }
 
-    public int DaysUntil(LocalDate futureDate) {
+    public int daysUntil(LocalDate futureDate) {
         LocalDate today = LocalDate.now();
         if (futureDate.isBefore(today)) {
-            throw new IllegalArgumentException("A data fornecida é anterior à data atual.");
+            throw new NotAllowedTransactionException("A data fornecida é anterior à data atual.");
         }
         return (int) ChronoUnit.DAYS.between(today, futureDate);
     }
