@@ -4,6 +4,10 @@
 
 Projeto de teste go2win sistema de transação.
 
+## IDE
+
+IntelliJ IDEA Community Edition
+
 ## Tecnologias Utilizadas
 
 - **Java 11**
@@ -42,21 +46,21 @@ Projeto de teste go2win sistema de transação.
 ### Passos para Execução
 
 1. Clone o repositório:
-    ```bash
-    git clone https://github.com/PedroGomes15/teste-go2win-fronted.git
-    ```
+   ```bash
+   git clone https://github.com/PedroGomes15/teste-go2win-fronted.git
+   ```
 2. Navegue até o diretório do projeto:
-    ```bash
-    cd teste-go2win-backend
-    ```
+   ```bash
+   cd teste-go2win-backend
+   ```
 3. Execute o comando Maven para compilar o projeto e baixar as dependências:
-    ```bash
-    mvn clean install
-    ```
+   ```bash
+   mvn clean install
+   ```
 4. Inicie a aplicação:
-    ```bash
-    mvn spring-boot:run
-    ```
+   ```bash
+   mvn spring-boot:run
+   ```
 
 A aplicação estará disponível em `http://localhost:8080`.
 
@@ -89,7 +93,7 @@ A aplicação estará disponível em `http://localhost:8080`.
 
 ```
 
------
+---
 
 - #### Retorna a taxa referente a data
 
@@ -118,7 +122,7 @@ curl -X GET "http://localhost:8080/tax/fromdate?date=2024-07-22"
 
 ```
 
------
+---
 
 - #### Calcula a taxa referente ao valor que foi passado
 
@@ -131,7 +135,7 @@ POST /tax/calculate
 **Body**:
 
 | Parâmetro      | Tipo     | Descrição                                |
-|:---------------|:---------|:-----------------------------------------|
+| :------------- | :------- | :--------------------------------------- |
 | `amount`       | `number` | **Obrigatório**. Valor a ser transferido |
 | `transferDate` | `Date`   | **Obrigatório**. Data do agendamento     |
 
@@ -189,7 +193,7 @@ curl --request POST \
 
 ```
 
------
+---
 
 - #### Nova Transferencia
 
@@ -202,7 +206,7 @@ POST /transaction
 **Body**:
 
 | Parâmetro        | Tipo     | Descrição                                |
-|:-----------------|:---------|:-----------------------------------------|
+| :--------------- | :------- | :--------------------------------------- |
 | `fromAccount`    | `string` | **Obrigatório**. Conta do cliente        |
 | `destinyAccount` | `string` | **Obrigatório**. Conta do destinatario   |
 | `amount`         | `number` | **Obrigatório**. Valor a ser transferido |
@@ -240,13 +244,12 @@ curl --request POST \
 
 ## Roadmap
 
+- Criar um sistema de conta por usuario
 - Adicionar um banco de dados relacional como Postgress
-
 - Migrar as taxas para um tabela no banco de dados para facilitar a atualização dos valores.
-
 - Adicionar uma biblioteca de migrations para criar as tabelas no banco de dados relacional e manter o historico.
-
 - Adicionar testes unitarios com o Spring Test
+- CI/CD para deploy
 
 ## Detalhes
 
@@ -255,4 +258,3 @@ curl --request POST \
 ## Autores
 
 - [@PedroGomes15](https://github.com/PedroGomes15)
-
