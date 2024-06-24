@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
+//Arquivo para ler as taxas de um json em resources e converte para um objeto
+
 @Configuration
 public class TransferTableConfig {
 
