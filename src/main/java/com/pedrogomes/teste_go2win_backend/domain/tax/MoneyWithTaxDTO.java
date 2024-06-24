@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+//Getters e setters e construtores basicos gerados automaticamento pelo 'lombok'
 @Getter
 @Setter
 @AllArgsConstructor

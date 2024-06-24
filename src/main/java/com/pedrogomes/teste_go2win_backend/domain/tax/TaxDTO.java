@@ -2,6 +2,7 @@ package com.pedrogomes.teste_go2win_backend.domain.tax;
 
 import lombok.Getter;
 
+//Getters gerados automaticamento pelo 'lombok'
 @Getter
 public class TaxDTO {
 

@@ -7,6 +7,8 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
+
+//Getters e setters e construtores basicos gerados automaticamento pelo 'lombok'
 @Getter
 @Setter
 @AllArgsConstructor
